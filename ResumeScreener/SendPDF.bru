@@ -1,0 +1,15 @@
+meta {
+  name: SendPDF
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://127.0.0.1:8000/upload_resume/
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  file: @file(C:\Users\diogo\Downloads\archive\data\data\PUBLIC-RELATIONS\88651471.pdf)
+}

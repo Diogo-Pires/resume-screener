@@ -1,0 +1,15 @@
+meta {
+  name: MatchResume
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://127.0.0.1:8000/match_resume/
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  file: @file(C:\Users\diogo\Downloads\archive\data\data\PUBLIC-RELATIONS\93828034.pdf)
+}
