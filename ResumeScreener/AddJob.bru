@@ -1,0 +1,15 @@
+meta {
+  name: AddJob
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://127.0.0.1:8000/add_job/?description=test
+  body: json
+  auth: none
+}
+
+params:query {
+  description: test
+}
