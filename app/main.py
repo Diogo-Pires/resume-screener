@@ -20,7 +20,7 @@ def add_job(description: str):
 @app.post("/match_resume/")
 async def match_resume(file: UploadFile = File(...), job_id: str = Form(...)):
     """Match a resume to a job description and store the result."""
-    print(job_id)
+    print()
     job = get_job_collection().find_one({"_id": ObjectId(job_id)})
     if not job:
         return {"error": "Job ID not found"}
@@ -31,7 +31,7 @@ async def match_resume(file: UploadFile = File(...), job_id: str = Form(...)):
     
     get_resume_collection().insert_one({
         "job_id": job_id,
-        "name": name, 
+        "name": name or file.filename, 
         "resume_text": resume_text,
         "similarity_score": similarity_score
     })

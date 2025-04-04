@@ -14,4 +14,4 @@ def extract_name(text: str) -> str:
     for entity in entities:
         if entity["entity"].startswith("B-PER"):
             return entity["word"]
-    return "Name not found"
+    return None
