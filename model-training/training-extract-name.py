@@ -26,7 +26,7 @@ with open('NER_training_data.json', 'r', encoding='utf-8') as f:
 with nlp.disable_pipes(*other_pipes):
     optimizer = nlp.resume_training()
 
-    for epoch in range(20):
+    for epoch in range(40):
         random.shuffle(training_data)
         losses = {}
 
@@ -42,6 +42,7 @@ with nlp.disable_pipes(*other_pipes):
                 doc = nlp.make_doc(text)
                 example = Example.from_dict(doc, annotations)
                 examples.append(example)
+            print(f"Loss: {losses}")
 
             nlp.update(examples, drop=0.5, losses=losses)
 
