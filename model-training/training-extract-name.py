@@ -18,8 +18,17 @@ for label in labels:
 # Disable other components
 other_pipes = [pipe for pipe in nlp.pipe_names if pipe != "ner"]
 
+def has_overlap(entities):
+    spans = []
+    for start, end, label in entities:
+        for s, e, _ in spans:
+            if start < e and end > s:  # overlap
+                return True
+        spans.append((start, end, label))
+    return False
+
 # Load training data
-with open('NER_training_data.json', 'r', encoding='utf-8') as f:
+with open('synthetic_ner_data_train.json', 'r', encoding='utf-8') as f:
     training_data = json.load(f)
 
 # Training
@@ -37,6 +46,10 @@ with nlp.disable_pipes(*other_pipes):
             for item in batch:
                 text = item["text"]
                 entities = item["entities"]
+
+                if has_overlap(entities):
+                    continue  # skip this example
+                
                 annotations = {"entities": [tuple(ent) for ent in entities]}
                 
                 doc = nlp.make_doc(text)
