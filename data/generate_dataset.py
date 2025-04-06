@@ -2,15 +2,19 @@ import random
 import json
 import pandas as pd
 
-# Lists to choose random elements from
-names = pd.read_csv("names.csv", header=None)[0].dropna().tolist()
-job_titles = pd.read_csv('job-titles.csv', header=None)[0].dropna().tolist()
-orgs = pd.read_csv('orgs.csv', header=None)[0].dropna().tolist()
-emails = pd.read_csv('emails.csv', header=None)[0].dropna().tolist()
-phones = pd.read_csv('phones.csv', header=None)[0].dropna().tolist()
-skills = pd.read_csv('skills.csv', header=None)[0].dropna().tolist()
+# Load lists
+names = pd.read_csv("names.csv", header=None, low_memory=False)[0].dropna().tolist()
+job_titles = pd.read_csv('job-titles.csv', header=None, low_memory=False)[0].dropna().tolist()
+orgs = pd.read_csv('orgs.csv', header=None, low_memory=False)[0].dropna().tolist()
+emails = pd.read_csv('emails.csv', header=None, low_memory=False)[0].dropna().tolist()
+phones = pd.read_csv('phones.csv', header=None, low_memory=False)[0].dropna().tolist()
+skills = pd.read_csv('skills.csv', header=None, low_memory=False)[0].dropna().tolist()
 
-# Function to generate a synthetic record
+def find_span(text, substring):
+    """Finds the first non-overlapping occurrence of a substring and returns (start, end)"""
+    start = text.index(substring)
+    return (start, start + len(substring))
+
 def generate_synthetic_data():
     name = random.choice(names)
     job_title = random.choice(job_titles)
@@ -19,24 +23,29 @@ def generate_synthetic_data():
     phone = random.choice(phones)
     skill1 = random.choice(skills)
     skill2 = random.choice(skills)
+    skill3 = random.choice(skills)
+
+    text = f"{name} is a {job_title} at {org}. You can contact he/she at {email} or {phone}. Skills: {skill1}, {skill2}, {skill3}."
+
+    # Ensure unique skills
+    skills_used = list(set([skill1, skill2, skill3]))
     
-    text = f"{name} is a {job_title} at {org}. You can contact them at {email} or {phone}. Skills: {skill1}, {skill2}."
-    entities = [
-        [0, len(name), "PERSON"],
-        [len(name)+5, len(name)+5+len(job_title), "JOB_TITLE"],
-        [len(name)+5+len(job_title)+3, len(name)+5+len(job_title)+3+len(org), "ORG"],
-        [len(name)+5+len(job_title)+3+len(org)+2, len(name)+5+len(job_title)+3+len(org)+2+len(email), "EMAIL"],
-        [len(name)+5+len(job_title)+3+len(org)+2+len(email)+2, len(name)+5+len(job_title)+3+len(org)+2+len(email)+2+len(phone), "PHONE"],
-        [text.lower().find(skill1), text.lower().find(skill1)+len(skill1), "SKILL"]
-    ]
-    
+    entities = []
+    for value, label in [(name, "PERSON"), (job_title, "JOB_TITLE"), (org, "ORG"),
+                         (email, "EMAIL"), (phone, "PHONE")] + [(s, "SKILL") for s in skills_used]:
+        try:
+            start, end = find_span(text, value)
+            entities.append([start, end, label])
+        except ValueError:
+            continue  # skip if not found
+
     return {"text": text, "entities": entities}
 
-# Generate 200 records
-data = [generate_synthetic_data() for _ in range(1000)]
+# Generate data
+data = [generate_synthetic_data() for _ in range(2000)]
 
-# Save data to JSON
-with open("synthetic_ner_data_train.json", "w", encoding="utf-8") as f:
+# Save
+with open("../model-training/synthetic_ner_data_train.json", "w", encoding="utf-8") as f:
     json.dump(data, f, indent=4)
 
-print("1000 synthetic records have been generated and saved to 'synthetic_ner_data.json'.")
+print("2000 records generated and saved.")

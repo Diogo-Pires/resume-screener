@@ -22,7 +22,7 @@ def has_overlap(entities):
     spans = []
     for start, end, label in entities:
         for s, e, _ in spans:
-            if start < e and end > s:  # overlap
+            if start < e and end > s:
                 return True
         spans.append((start, end, label))
     return False
@@ -32,10 +32,11 @@ with open('synthetic_ner_data_train.json', 'r', encoding='utf-8') as f:
     training_data = json.load(f)
 
 # Training
+overlap_counter = 0
 with nlp.disable_pipes(*other_pipes):
     optimizer = nlp.resume_training()
 
-    for epoch in range(40):
+    for epoch in range(20):
         random.shuffle(training_data)
         losses = {}
 
@@ -48,7 +49,8 @@ with nlp.disable_pipes(*other_pipes):
                 entities = item["entities"]
 
                 if has_overlap(entities):
-                    continue  # skip this example
+                    overlap_counter = overlap_counter + 1
+                    continue
                 
                 annotations = {"entities": [tuple(ent) for ent in entities]}
                 
@@ -58,6 +60,8 @@ with nlp.disable_pipes(*other_pipes):
             print(f"Loss: {losses}")
 
             nlp.update(examples, drop=0.5, losses=losses)
+
+print("Found " + str(overlap_counter) + " overlaps")
 
 # Save trained model
 nlp.to_disk("extract_name_ner_model")
