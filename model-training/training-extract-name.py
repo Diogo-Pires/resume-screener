@@ -2,6 +2,8 @@ import json
 import spacy
 from spacy.training.example import Example
 from spacy.util import minibatch
+from spacy.training import offsets_to_biluo_tags
+from sklearn.model_selection import train_test_split
 import random
 
 # Load base model
@@ -18,18 +20,19 @@ for label in labels:
 # Disable other components
 other_pipes = [pipe for pipe in nlp.pipe_names if pipe != "ner"]
 
-def has_overlap(entities):
-    spans = []
-    for start, end, label in entities:
-        for s, e, _ in spans:
-            if start < e and end > s:
-                return True
-        spans.append((start, end, label))
-    return False
+def is_valid_example(text, entities):
+    doc = nlp.make_doc(text)
+    try:
+        tags = offsets_to_biluo_tags(doc, entities)
+        return "-" not in tags
+    except Exception:
+        return False
 
 # Load training data
 with open('synthetic_ner_data_train.json', 'r', encoding='utf-8') as f:
-    training_data = json.load(f)
+    all_data = json.load(f)
+
+train_data, eval_data = train_test_split(all_data, test_size=0.2, random_state=42)
 
 # Training
 overlap_counter = 0
@@ -37,10 +40,10 @@ with nlp.disable_pipes(*other_pipes):
     optimizer = nlp.resume_training()
 
     for epoch in range(20):
-        random.shuffle(training_data)
+        random.shuffle(train_data)
         losses = {}
 
-        batches = minibatch(training_data, size=8)
+        batches = minibatch(train_data, size=8)
 
         for batch in batches:
             examples = []
@@ -48,7 +51,7 @@ with nlp.disable_pipes(*other_pipes):
                 text = item["text"]
                 entities = item["entities"]
 
-                if has_overlap(entities):
+                if is_valid_example(text, entities):
                     overlap_counter = overlap_counter + 1
                     continue
                 
@@ -57,11 +60,22 @@ with nlp.disable_pipes(*other_pipes):
                 doc = nlp.make_doc(text)
                 example = Example.from_dict(doc, annotations)
                 examples.append(example)
-            print(f"Loss: {losses}")
+                total_loss += losses['ner']
 
-            nlp.update(examples, drop=0.5, losses=losses)
+            print(f"Epoch {epoch + 1} - Loss: {losses}")
 
+            dropout = max(0.2, 0.5 - (epoch * 0.02))
+            nlp.update(examples, drop=dropout, losses=losses)
+            
+print(f"Epoch 20 finished - Avg NER loss: {total_loss / batches}")
 print("Found " + str(overlap_counter) + " overlaps")
+
+examples = [Example.from_dict(nlp.make_doc(d["text"]), {"entities": d["entities"]}) for d in eval_data]
+scorer = nlp.evaluate(examples)
+print(scorer)
 
 # Save trained model
 nlp.to_disk("extract_name_ner_model")
+
+#python -m spacy init config config.cfg --lang en --pipeline ner
+#python -m spacy debug data config.cfg --paths.train train.spacy --paths.dev train.spacy
