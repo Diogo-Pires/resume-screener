@@ -60,11 +60,11 @@ def generate_synthetic_data():
 
     return {"text": text, "entities": entities}
 
-# Generate 2000 records
-data = [generate_synthetic_data() for _ in range(2000)]
+# Generate 3000 records
+data = [generate_synthetic_data() for _ in range(3000)]
 
 # Save to JSON
 with open("../model-training/synthetic_ner_data_train.json", "w", encoding="utf-8") as f:
     json.dump(data, f, indent=4)
 
-print("2000 synthetic NER records generated and saved!")
+print("3000 synthetic NER records generated and saved!")

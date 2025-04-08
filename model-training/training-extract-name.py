@@ -36,14 +36,17 @@ train_data, eval_data = train_test_split(all_data, test_size=0.2, random_state=4
 
 # Training
 overlap_counter = 0
+total_loss = 0.0
+
 with nlp.disable_pipes(*other_pipes):
     optimizer = nlp.resume_training()
 
     for epoch in range(20):
         random.shuffle(train_data)
         losses = {}
+        epoch_examples = []
 
-        batches = minibatch(train_data, size=8)
+        batches = list(minibatch(train_data, size=8))
 
         for batch in batches:
             examples = []
@@ -51,31 +54,35 @@ with nlp.disable_pipes(*other_pipes):
                 text = item["text"]
                 entities = item["entities"]
 
-                if is_valid_example(text, entities):
-                    overlap_counter = overlap_counter + 1
+                if not is_valid_example(text, entities):
+                    overlap_counter += 1
                     continue
-                
+
                 annotations = {"entities": [tuple(ent) for ent in entities]}
-                
                 doc = nlp.make_doc(text)
                 example = Example.from_dict(doc, annotations)
                 examples.append(example)
-                total_loss += losses['ner']
 
-            print(f"Epoch {epoch + 1} - Loss: {losses}")
+            if examples:
+                dropout = max(0.2, 0.5 - (epoch * 0.02))
+                nlp.update(examples, drop=dropout, losses=losses)
+                total_loss += losses.get("ner", 0.0)
 
-            dropout = max(0.2, 0.5 - (epoch * 0.02))
-            nlp.update(examples, drop=dropout, losses=losses)
-            
-print(f"Epoch 20 finished - Avg NER loss: {total_loss / batches}")
-print("Found " + str(overlap_counter) + " overlaps")
+        print(f"Epoch {epoch + 1} - Loss: {losses.get('ner', 0.0):.4f}")
 
+print(f"\nTraining finished.")
+print(f"Total skipped examples due to overlap/misalignment: {overlap_counter}")
+print(f"Average NER loss per epoch: {total_loss / 20:.4f}")
+
+# Evaluation
 examples = [Example.from_dict(nlp.make_doc(d["text"]), {"entities": d["entities"]}) for d in eval_data]
 scorer = nlp.evaluate(examples)
+print("\nEvaluation:")
 print(scorer)
 
 # Save trained model
 nlp.to_disk("extract_name_ner_model")
+
 
 #python -m spacy init config config.cfg --lang en --pipeline ner
 #python -m spacy debug data config.cfg --paths.train train.spacy --paths.dev train.spacy

@@ -2,9 +2,25 @@ import spacy
 
 nlp = spacy.load("extract_name_ner_model")
 
-text = "Diogo Pires is a machine learning engineer at UST. Contact: diogowebmaster@hotmail.com, 930575801. Skills: TensorFlow, Kubernetes, SQL."
+text = "Claude Bruce is a machine learning engineer at Facebook. Contact: bruce@facebook.com, 987-654-7878. Skills: TensorFlow, Kubernetes, SQL, Python."
 doc = nlp(text)
 
+for ent in doc.ents:
+    print(ent.text, ent.label_)
+
+print("\n--- Detected entities ---")
+for ent in doc.ents:
+    print(f"{ent.text} --> {ent.label_}")
+
+print(nlp.get_pipe("ner").labels)
+
+# Inspect token-level predictions
+print("\n--- Token-level entity analysis ---")
+for token in doc:
+    print(f"{token.text:20} --> {token.ent_type_}")
+
+# Entity-level printout
+print("\n--- Detected entities ---")
 for ent in doc.ents:
     if ent.label_ == "PERSON":
         print(f"Detected Name: {ent.text}")
