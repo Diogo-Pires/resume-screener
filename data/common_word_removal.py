@@ -1,32 +1,49 @@
 import pandas as pd
 import re
+import string
 from collections import Counter
+from nltk.corpus import stopwords
+from nltk import download
 
-# === CONFIGURATION ===
-input_file = "input.csv"
-output_file = "cleaned.csv"
-num_common_words_to_remove = 20  # Adjust as needed
+# Download stopwords if not already present
+download('stopwords')
+stop_words = set(stopwords.words('english'))
 
-# === LOAD CSV ===
-df = pd.read_csv(input_file, header=None, names=["text"])
+# === CONFIG ===
+input_file = "job-titles.csv"
+output_file = "job-titles.csv"
+top_n_common_to_remove = 5  # adjust based on your dataset size
 
-# === TOKENIZE & COUNT WORDS ===
-all_text = " ".join(df["text"].astype(str)).lower()
-tokens = re.findall(r'\b\w+\b', all_text)
-word_counts = Counter(tokens)
-most_common = set(word for word, _ in word_counts.most_common(num_common_words_to_remove))
+# === LOAD SKILLS ===
+skills = pd.read_csv(input_file, header=None, names=["skill"], low_memory=False)
+skills["skill"] = skills["skill"].astype(str).str.strip().str.lower()
 
-# === FUNCTION TO REMOVE COMMON WORDS FROM TEXT ===
-def remove_common_words(text, common_words):
-    tokens = re.findall(r'\b\w+\b', text.lower())
-    filtered_tokens = [word for word in tokens if word not in common_words]
-    return " ".join(filtered_tokens)
+# === CLEAN TEXT & TOKENIZE ===
+def clean_and_tokenize(skill):
+    # Remove punctuation, numbers, extra whitespace
+    cleaned = re.sub(r'[^a-zA-Z\s]', '', skill)
+    tokens = cleaned.lower().split()
+    return [word for word in tokens if word not in stop_words and len(word) > 1]
 
-# === APPLY CLEANING ===
-df["cleaned"] = df["text"].astype(str).apply(lambda x: remove_common_words(x, most_common))
+all_tokens = []
+skills["tokens"] = skills["skill"].apply(lambda x: clean_and_tokenize(x))
+skills["tokens"].apply(lambda tokens: all_tokens.extend(tokens))
+
+# === GET MOST COMMON (NOISY) WORDS ===
+word_freq = Counter(all_tokens)
+common_words = set(word for word, _ in word_freq.most_common(top_n_common_to_remove))
+
+# === FILTER OUT COMMON WORDS FROM TOKENS ===
+def remove_common(tokens):
+    return " ".join([token for token in tokens if token not in common_words])
+
+skills["cleaned"] = skills["tokens"].apply(remove_common)
+
+# === REMOVE EMPTY ENTRIES AFTER CLEANING ===
+skills = skills[skills["cleaned"].str.strip() != ""]
 
 # === SAVE TO FILE ===
-df["cleaned"].to_csv(output_file, index=False, header=False)
+skills["cleaned"].drop_duplicates().to_csv(output_file, index=False, header=False)
 
-print(f"Top {num_common_words_to_remove} common words removed.")
-print(f"Cleaned CSV saved to '{output_file}'.")
+print(f"Cleaned skills saved to: {output_file}")
+print(f" Removed top {top_n_common_to_remove} common/noisy words.")
