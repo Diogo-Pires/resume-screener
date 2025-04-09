@@ -125,6 +125,9 @@
     "lemmatizer":[
 
     ],
+    "entity_ruler":[
+      "EMAIL"
+    ],
     "ner":[
       "CARDINAL",
       "DATE",
@@ -156,6 +159,7 @@
     "parser",
     "attribute_ruler",
     "lemmatizer",
+    "entity_ruler",
     "ner"
   ],
   "components":[
@@ -165,6 +169,7 @@
     "senter",
     "attribute_ruler",
     "lemmatizer",
+    "entity_ruler",
     "ner"
   ],
   "disabled":[
