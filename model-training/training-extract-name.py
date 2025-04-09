@@ -4,10 +4,15 @@ from spacy.training.example import Example
 from spacy.util import minibatch
 from spacy.training import offsets_to_biluo_tags
 from sklearn.model_selection import train_test_split
+from spacy.pipeline import EntityRuler
 import random
 
 # Load base model
 nlp = spacy.load("en_core_web_sm")
+
+ruler = nlp.add_pipe("entity_ruler", before="ner")
+patterns = [{"label": "EMAIL", "pattern": [{"TEXT": {"REGEX": r"^[^@\s]+@[^@\s]+\.[a-zA-Z]+$"}}]}]
+ruler.add_patterns(patterns)
 
 # Get NER pipeline
 ner = nlp.get_pipe("ner")
@@ -41,7 +46,7 @@ total_loss = 0.0
 with nlp.disable_pipes(*other_pipes):
     optimizer = nlp.resume_training()
 
-    for epoch in range(20):
+    for epoch in range(30):
         random.shuffle(train_data)
         losses = {}
         epoch_examples = []
