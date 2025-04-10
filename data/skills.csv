@@ -1,22 +1,22 @@
 audition
-active server pages asp
+active pages asp
 docker
-apache hadoop
+hadoop
 wordpress
 php
 express pcie
 ehr
 javascript
-student information systems sis
+student information sis
 qualys cloud platform
 screaming frog seo spider
 blackbaud raisers edge
 sketchup pro
 office
-geographic information system gis
+geographic information gis
 turbotax
 mastercam computeraided design manufacturing
-operating system
+operating
 springshare libguides
 vector canape
 kronos workforce timekeeper
@@ -27,7 +27,7 @@ numpy
 effects
 metasploit
 thomson reuters westlaw
-tag manager
+tag
 sap
 pytorch
 payroll
@@ -42,22 +42,22 @@ zemax
 ptv vissim
 web browser
 web application
-relational database management system
-apache spark
-tax compliance property tax management
+relational database
+spark
+tax compliance property tax
 bash
 middleware
 libraries
-rust programming language
+rust programming
 unity technologies unity
 django
 kali linux
 inventor
-inventory management systems
+inventory
 unix
 github
 tax
-visual studio
+studio
 figma
 aspnet
 scikitlearn
@@ -67,20 +67,19 @@ hexrays ida pro
 vector canalyzer
 access
 ads
-web services aws cloudformation
+web aws cloudformation
 restful api
-red hat enterprise linux
+red hat linux
 hecras
 elasticsearch
 creo parametric
-windows
 simple storage service
 articulate storyline
 vector binary ninja
 operational store ods
-apache hive
+hive
 linux
-hypertext markup language html
+hypertext markup html
 docs
 cubic synchro studio
 websphere
@@ -93,7 +92,7 @@ mongodb
 autocad civil
 cascading style sheets css
 esri arcview
-apache cassandra
+cassandra
 firewall
 eclipse ide
 final cut pro
@@ -107,8 +106,8 @@ photoshop
 lumion
 spss statistics
 alteryx
-customer relationship management crm
-network directory services
+customer relationship crm
+network directory
 perl
 facebook
 xactware xactimate
@@ -121,39 +120,39 @@ atlassian jira
 visio
 zoom
 semrush
-apache subversion svn
+subversion svn
 database application
-apache kafka
+kafka
 gcode
 mathworks simulink
 bing ads
 azure
 nodejs
-skm systems analysis power tools
-azure devops services
+skm analysis power tools
+azure devops
 meet
 redis
 cloud
-transportation management system tms
-hardware description language hdl
+transportation tms
+hardware description hdl
 statistical
-weblogic server
-tool command language
+weblogic
+tool command
 illustrator
 simulation
 ansible
 project
-apache airflow
-extensible markup language xml
+airflow
+extensible markup xml
 sap concur
-web services aws
+web aws
 sql developer
-clinical trial management
-java platform enterprise edition jee
+clinical trial
+java platform edition jee
 openroads designer
 pvsyst
-inventory control system
-apache maven
+inventory control
+maven
 git
 script
 atlassian bitbucket
@@ -168,7 +167,6 @@ mechanical electrical plumbing mep design
 excel
 cgtech vericut cnc
 javascript framework
-project management
 video editing
 applicant tracking
 ghidra
@@ -180,25 +178,24 @@ adp workforce
 angular
 tensorflow
 moz search engine optimization seo
-sql server
-apache jmeter
-primavera enterprise project portfolio management
+sql
+jmeter
+primavera project portfolio
 esri arcsde
 pandas
 powerpoint
 central command
-warehouse management system wms
+warehouse wms
 maya
-guidance encase enterprise
+guidance encase
 border gateway protocol bgp
 epiccare ambulatory electronic medical records emr
-sql server integration services ssis
-geographic information system gis systems
-high speed integrated circuit vhsic hardware description language vhdl simulation
+sql integration ssis
+high speed integrated circuit vhsic hardware description vhdl simulation
 db
 coldfusion
 javaserver pages jsp
-web server
+web
 sap erp
 esri arcgis survey
 puppet
@@ -216,37 +213,35 @@ rapid
 forsk atoll
 selenium
 earth pro
-system testing
-team foundation server
+testing
+team foundation
 acrobat
 source code editor
 rockware arcmap
-epic systems
+epic
 henry schein dentrix
 net framework
 accessdata ftk
 servicenow
 lowlevel virtual machine llvm compilers
 productivity
-windows server
 python
 sharepoint
-outage management system oms
+outage oms
 mysql
 tableau
 websphere mq
-web content management system cms
+web content cms
 etap
-learning management system lms
+learning lms
 transactsql
-enterprise
 terraform
 database
 workspace
 national instruments labview
 power bi
 purchasing
-visual basic applications vba
+basic applications vba
 dynamodb
 postgresql
 nmap
@@ -269,18 +264,18 @@ systemverilog
 typescript
 hibernate orm
 ruby rails
-apache tomcat
-enterprise application integration eai
+tomcat
+application integration eai
 kubernetes
 plsql
-sql server reporting services ssrs
+sql reporting ssrs
 red hat wildfly
-content management systems cms
-visual basic
+content cms
+basic
 eclipse jersey
 elastic compute cloud ec
 solidity
-structured query language sql
+structured query sql
 react
 tenable nessus
 drupal
@@ -304,14 +299,14 @@ center onscreen takeoff
 javascript object notation json
 outlook
 navisworks jetstream
-property management system pms
+property pms
 jquery
-enterprise resource planning erp system
+resource planning erp
 java
 pipeline
 elastic container service ecs
 kinesis
-web services aws sagemaker
+web aws sagemaker
 books ngram viewer
 calendar
 checkout
@@ -328,9 +323,9 @@ slides
 translate client
 video
 webmaster tools
-enterprise javabeans
+javabeans
 javamin composer
-java enterprise edition ee
+java edition ee
 java message service jms
 sun microsystems java
 sun microsystems java persistence api
@@ -346,12 +341,12 @@ aspnet core mvc
 axapta
 azure sentinel
 bing
-business contact manager
+business contact
 business intelligence bi
-commerce server
+commerce
 defender antivirus
 directx
-dns server
+dns
 dynamics ax
 dynamics crm
 dynamics erp
@@ -364,18 +359,18 @@ esp sdk
 exchange
 expression blend
 expression design
-extensible application markup language xaml
-forefront identify manager
-forefront threat management gateway
+extensible application markup xaml
+forefront identify
+forefront threat gateway
 frontpage
 frx
 great plains personal keeper
-high level shader language hlsl
+high level shader hlsl
 hyperterminal
-hyperv server
+hyperv
 image composite editor
 internet explorer
-internet information services iis
+internet information iis
 mappoint
 mobile explorer mme
 money
@@ -386,7 +381,7 @@ office frontpage
 office live meeting
 office mobile
 office outlook
-office sharepoint server moss
+office sharepoint moss
 onenote
 onfolio
 paint
@@ -395,111 +390,105 @@ power automate
 proclarity
 publisher
 security esssentials
-sharepoint server
 silverlight
-sql server compact
-system center
-systems management server
-total quality control management
-transactstructural query language tsql
-virtual server
-visual basic scripting edition vbscript
-visual basicnet
-visual basicnet compact framework cf
-visual net
-visual foxpro
-visual interdev
-visual
-visual sourcesafe
-visual studio test professional
-visual studionet
+sql compact
+center
+total quality control
+transactstructural query tsql
+virtual
+basic scripting edition vbscript
+basicnet
+basicnet compact framework cf
+net
+foxpro
+interdev
+sourcesafe
+studio test professional
+studionet
 volume shadow copy service
-windows mobile
-windows movie maker
-windows powershell
-windows preinstallation environment
-windows sdk
-windows sysprep
-windows terminal services access manager
-windows vista business
-windows xp
-windows xp professional
+mobile
+movie maker
+preinstallation environment
+sdk
+sysprep
+terminal access
+vista business
+xp
+xp professional
 works
-clarity systems clarity
+clarity clarity
 adstar
 aix
 bpm blueprint
 catia
-check processing control system cpsc
+check processing control cpsc
 cognos
 cognos business intelligence
 cognos impromptu
 cognos planning
 cognos reportnet
-content manager
+content
 costimater
 digital analytics
 director
 domino
-federated records management
-filenet content manager
-fraud abuse management system
+federated records
+filenet content
+fraud abuse
 analysts notebook
-transportation manager
+transportation
 ilog
 ilog cplex optimization studio
 ilog inventory analyst
 ilog logicnet plus xe
-information management system ims
+information ims
 informix
 infosphere datastage
-infosphere information server
+infosphere information
 infosphere warehouse
 intelligent miner
-interactive system productivity facility ispf
+interactive productivity facility ispf
 iseries access
-judicial enforcement management system jems
+judicial enforcement jems
 lotus
 lotus approach
 lotus learningspace
 lotus notes
 lotus sametime
-maximo asset management
+maximo asset
 mvs
 netezza twinfin
 netview
 notes
-power systems
+power
 qradar siem
-rational
-rational apex
-rational application developer
-rational build forge
-rational clearcase
-rational clearquest
-rational architect
-rational doors
-rational functional tester
-rational purifyplus
-rational requirements composer
-rational requisitepro
-rational robot
-rational rose xde
-rational system architect
+apex
+application developer
+build forge
+clearcase
+clearquest
+architect
+doors
+functional tester
+purifyplus
+requirements composer
+requisitepro
+robot
+rose xde
 resource access control facility racf
-security network intrusion prevention system
-configuration library manager sclm
+security network intrusion prevention
+configuration library sclm
 spss amos
 spss answertree
 configure
-tivoli access management tam
-tivoli identity management tim
-tivoli netview distribution manager
+tivoli access tam
+tivoli identity tim
+tivoli netview distribution
 tivoli
-unica enterprise
-zos operating systems
+unica
+zos operating
 python experimental economics toolkit peet
-python tools visual studio ptvs
+python tools studio ptvs
 react native
 react redux
 emerson firstvue value sizing
@@ -508,8 +497,8 @@ geocue pointvue le
 hamrick vuescan
 mediavue
 optionvue options analysis
-vue benefits manager
-vue compensation management
+vue benefits
+vue compensation
 vuecentric mortgagedashboard
 applescript
 appleworks

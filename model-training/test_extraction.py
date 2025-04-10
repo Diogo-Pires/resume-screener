@@ -1,8 +1,8 @@
 import spacy
 
-nlp = spacy.load("extract_name_ner_model")
+nlp = spacy.load("extraction_ner_model")
 
-text = "Claude Bruce is a machine learning engineer at Facebook. email bruce.skyrme@facebook.com, 987-654-7878. Skills: TensorFlow, Kubernetes, SQL, Python."
+text = "Diogo Pires is a machine learning engineer at UST. email bruce.skyrme@facebook.com, +351 930575801. Skills: TensorFlow, Kubernetes, SQL, Python."
 doc = nlp(text)
 
 for ent in doc.ents:
