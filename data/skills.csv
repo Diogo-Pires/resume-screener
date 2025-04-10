@@ -4,29 +4,29 @@ docker
 hadoop
 wordpress
 php
-express pcie
+pcie
 ehr
 javascript
-student information sis
+student sis
 qualys cloud platform
 screaming frog seo spider
-blackbaud raisers edge
+blackbaud raisers
 sketchup pro
 office
-geographic information gis
+geographic gis
 turbotax
 mastercam computeraided design manufacturing
 operating
 springshare libguides
-vector canape
-kronos workforce timekeeper
+canape
+workforce timekeeper
 mcneel rhinoceros
 junit
-jenkins ci
+jenkins
 numpy
 effects
 metasploit
-thomson reuters westlaw
+reuters westlaw
 tag
 sap
 pytorch
@@ -35,7 +35,7 @@ splus
 ansys simulation
 indesign
 spring framework
-bentley microstation
+microstation
 active directory
 postman
 zemax
@@ -44,11 +44,11 @@ web browser
 web application
 relational database
 spark
-tax compliance property tax
+tax compliance tax
 bash
 middleware
 libraries
-rust programming
+rust
 unity technologies unity
 django
 kali linux
@@ -62,9 +62,9 @@ figma
 aspnet
 scikitlearn
 disassembler
-cisco webex
+webex
 hexrays ida pro
-vector canalyzer
+canalyzer
 access
 ads
 web aws cloudformation
@@ -73,9 +73,9 @@ red hat linux
 hecras
 elasticsearch
 creo parametric
-simple storage service
+simple storage
 articulate storyline
-vector binary ninja
+binary ninja
 operational store ods
 hive
 linux
@@ -106,7 +106,7 @@ photoshop
 lumion
 spss statistics
 alteryx
-customer relationship crm
+customer relationship
 network directory
 perl
 facebook
@@ -128,7 +128,7 @@ mathworks simulink
 bing ads
 azure
 nodejs
-skm analysis power tools
+skm analysis tools
 azure devops
 meet
 redis
@@ -144,14 +144,12 @@ ansible
 project
 airflow
 extensible markup xml
-sap concur
 web aws
 sql developer
 clinical trial
 java platform edition jee
 openroads designer
 pvsyst
-inventory control
 maven
 git
 script
@@ -163,7 +161,7 @@ revit
 statacorp stata
 mathworks matlab
 verilog
-mechanical electrical plumbing mep design
+mechanical plumbing mep design
 excel
 cgtech vericut cnc
 javascript framework
@@ -174,7 +172,7 @@ yardi
 chef
 ajax
 analytics
-adp workforce
+workforce
 angular
 tensorflow
 moz search engine optimization seo
@@ -191,7 +189,7 @@ guidance encase
 border gateway protocol bgp
 epiccare ambulatory electronic medical records emr
 sql integration ssis
-high speed integrated circuit vhsic hardware description vhdl simulation
+high speed circuit vhsic hardware description vhdl simulation
 db
 coldfusion
 javaserver pages jsp
@@ -204,7 +202,6 @@ red hat openshift
 powershell
 ruby
 spring boot
-creative cloud
 maya nastran
 mitre attck
 informatica
@@ -216,14 +213,13 @@ earth pro
 testing
 team foundation
 acrobat
-source code editor
+code editor
 rockware arcmap
-epic
 henry schein dentrix
-net framework
+framework
 accessdata ftk
 servicenow
-lowlevel virtual machine llvm compilers
+lowlevel machine llvm compilers
 productivity
 python
 sharepoint
@@ -231,7 +227,7 @@ outage oms
 mysql
 tableau
 websphere mq
-web content cms
+web content
 etap
 learning lms
 transactsql
@@ -239,7 +235,7 @@ terraform
 database
 workspace
 national instruments labview
-power bi
+bi
 purchasing
 basic applications vba
 dynamodb
@@ -265,12 +261,12 @@ typescript
 hibernate orm
 ruby rails
 tomcat
-application integration eai
+application integration
 kubernetes
 plsql
 sql reporting ssrs
 red hat wildfly
-content cms
+content
 basic
 eclipse jersey
 elastic compute cloud ec
@@ -292,19 +288,19 @@ scala
 davinci resolve
 dassault systemes solidworks
 wireshark
-ahrefs site explorer
+ahrefs explorer
 dynamics
 business applications
 center onscreen takeoff
 javascript object notation json
 outlook
 navisworks jetstream
-property pms
+pms
 jquery
 resource planning erp
 java
 pipeline
-elastic container service ecs
+elastic container ecs
 kinesis
 web aws sagemaker
 books ngram viewer
@@ -326,10 +322,10 @@ webmaster tools
 javabeans
 javamin composer
 java edition ee
-java message service jms
-sun microsystems java
-sun microsystems java persistence api
-sun microsystems java servlet api
+java message jms
+microsystems java
+microsystems java persistence api
+microsystems java servlet api
 xerces java parser
 yourkit java profiler
 adxstudio
@@ -342,13 +338,12 @@ axapta
 azure sentinel
 bing
 business contact
-business intelligence bi
+business bi
 commerce
 defender antivirus
 directx
 dns
 dynamics ax
-dynamics crm
 dynamics erp
 dynamics gp
 dynamics marketing
@@ -370,7 +365,7 @@ hyperterminal
 hyperv
 image composite editor
 internet explorer
-internet information iis
+internet iis
 mappoint
 mobile explorer mme
 money
@@ -386,32 +381,29 @@ onenote
 onfolio
 paint
 picture
-power automate
+automate
 proclarity
 publisher
 security esssentials
 silverlight
 sql compact
 center
-total quality control
+quality
 transactstructural query tsql
-virtual
 basic scripting edition vbscript
 basicnet
 basicnet compact framework cf
-net
 foxpro
 interdev
 sourcesafe
 studio test professional
 studionet
-volume shadow copy service
+volume shadow copy
 mobile
 movie maker
 preinstallation environment
 sdk
 sysprep
-terminal access
 vista business
 xp
 xp professional
@@ -421,13 +413,12 @@ adstar
 aix
 bpm blueprint
 catia
-check processing control cpsc
+check processing cpsc
 cognos
-cognos business intelligence
+cognos business
 cognos impromptu
 cognos planning
 cognos reportnet
-content
 costimater
 digital analytics
 director
@@ -440,11 +431,10 @@ transportation
 ilog
 ilog cplex optimization studio
 ilog inventory analyst
-ilog logicnet plus xe
-information ims
+ilog logicnet xe
 informix
 infosphere datastage
-infosphere information
+infosphere
 infosphere warehouse
 intelligent miner
 interactive productivity facility ispf
@@ -460,9 +450,7 @@ mvs
 netezza twinfin
 netview
 notes
-power
 qradar siem
-apex
 application developer
 build forge
 clearcase
@@ -475,15 +463,15 @@ requirements composer
 requisitepro
 robot
 rose xde
-resource access control facility racf
+resource access facility racf
 security network intrusion prevention
 configuration library sclm
 spss amos
 spss answertree
 configure
-tivoli access tam
-tivoli identity tim
-tivoli netview distribution
+tivoli access
+tivoli tim
+tivoli netview
 tivoli
 unica
 zos operating
@@ -492,7 +480,7 @@ python tools studio ptvs
 react native
 react redux
 emerson firstvue value sizing
-eon vue
+vue
 geocue pointvue le
 hamrick vuescan
 mediavue
@@ -505,7 +493,7 @@ appleworks
 cocoa
 drawberry
 dvd studio pro
-final cut express
+final cut
 final cut studio
 garageband
 idvd
