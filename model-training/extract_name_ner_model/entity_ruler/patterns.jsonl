@@ -1,1 +1,0 @@
-{"label":"EMAIL","pattern":[{"TEXT":{"REGEX":"^[^@\\s]+@[^@\\s]+\\.[a-zA-Z]+$"}}]}
