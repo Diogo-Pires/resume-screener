@@ -8,12 +8,12 @@ nlp = spacy.blank("en")
 def load_list(filename):
     return pd.read_csv(filename, header=None, low_memory=False)[0].dropna().tolist()
 
-names = load_list("names.csv")
-job_titles = load_list("job-titles.csv")
-orgs = load_list("orgs.csv")
-emails = load_list("emails.csv")
-phones = load_list("phones.csv")
-skills = load_list("skills.csv")
+names = load_list("../names.csv")
+job_titles = load_list("../job-titles.csv")
+orgs = load_list("../orgs.csv")
+emails = load_list("../emails.csv")
+phones = load_list("../phones.csv")
+skills = load_list("../skills.csv")
 
 TEMPLATES = [
     "{name} currently works as a {job_title} at {org}. {contact} Core skills include {skills}.",
@@ -29,6 +29,7 @@ TEMPLATES = [
 def introduce_typo(s):
     if len(s) < 4 or random.random() > 0.15:  # only 15% get typos
         return s
+    
     i = random.randint(1, len(s)-2)
     return s[:i] + s[i+1] + s[i] + s[i+2:]
 
@@ -111,7 +112,7 @@ def generate_synthetic_data():
 data = [generate_synthetic_data() for _ in range(3000)]
 
 # Save to JSON
-with open("../model-training/synthetic_ner_data_train.json", "w", encoding="utf-8") as f:
+with open("../../model-training/synthetic_ner_data_train.json", "w", encoding="utf-8") as f:
     json.dump(data, f, indent=4)
 
 print(f"{len(data)} noisy + diverse NER records generated!")

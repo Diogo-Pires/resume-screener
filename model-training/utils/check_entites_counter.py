@@ -1,7 +1,7 @@
 from collections import Counter
 import json
 
-with open("synthetic_ner_data_train.json", "r", encoding="utf-8") as f:
+with open("../synthetic_ner_data_train.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 label_counts = Counter()

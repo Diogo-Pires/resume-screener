@@ -2,7 +2,7 @@ from collections import defaultdict
 import random
 import json
 
-with open("synthetic_ner_data_train.json", "r", encoding="utf-8") as f:
+with open("../synthetic_ner_data_train.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 balanced_data = []

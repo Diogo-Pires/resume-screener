@@ -5,7 +5,7 @@ import json
 nlp = spacy.blank("en")
 doc_bin = DocBin()
 
-with open("synthetic_ner_data_train.json", "r", encoding="utf-8") as f:
+with open("../synthetic_ner_data_train.json", "r", encoding="utf-8") as f:
     training_data = json.load(f)
 
 for record in training_data:
