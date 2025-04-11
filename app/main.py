@@ -2,7 +2,7 @@ from bson import ObjectId
 from fastapi import FastAPI, File, Form, UploadFile
 from app.database import get_job_collection, get_resume_collection
 from app.matcher import compute_similarity
-from app.parser import extract_name, extract_text_from_pdf
+from app.parser import extract_entities, extract_text_from_pdf
 
 app = FastAPI()
 
@@ -26,12 +26,12 @@ async def match_resume(file: UploadFile = File(...), job_id: str = Form(...)):
         return {"error": "Job ID not found"}
     
     resume_text = extract_text_from_pdf(file)
-    name = extract_name(resume_text)
+    entities = extract_entities(resume_text)
     similarity_score = compute_similarity(resume_text, job["description"])
     
     get_resume_collection().insert_one({
         "job_id": job_id,
-        "name": name or file.filename, 
+        "entities": entities, 
         "resume_text": resume_text,
         "similarity_score": similarity_score
     })
