@@ -1,5 +1,5 @@
 # IT Resume Screener
-An AI-powered API that matches, ranks, and extracts information from IT resumes.​
+An **ongoing** AI-powered API that matches, ranks, and extracts information from IT resumes.​
 
 ## Overview
 IT Resume Screener is a Python-based API designed to streamline the recruitment process by leveraging artificial intelligence. It analyzes resumes to extract pertinent information, matches them against job descriptions, and ranks candidates based on relevance.​
